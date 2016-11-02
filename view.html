@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>VR看房</title>
+    <meta name="description" content="VR看房">
+    <script src="./js/vr.js"></script>
+  </head>
+  <body id="main-screen" class="">
+ <a-scene>
+  <a-assets>
+    <img id="floor" src="pic/floor.jpg">
+	<img id="arrow" src="pic/arrow.png">
+	<img id="ru" src="pic/ru.jpg">
+  </a-assets>
+  <a-sky id="asky-back" src="#ru"></a-sky>
+  <a-sky id="asky-front" src="#floor"></a-sky>
+ 
+  <a-curvedimage id="arrow1" src="#arrow" theta-length="15" height=".36" rotation="0 180 0" scale="0.5 0.5 0.5">
+		<a-animation attribute="position"  to=".2 0 0" repeat="indefinite" dur="500" direction="alternate"></a-animation>
+  </a-curvedimage>
+  <!-- Camera with gaze cursor -->
+  <a-entity>
+      <a-entity camera look-controls wasd-controls>
+          <!-- Cursor should only interact with .box class entities -->
+          <a-entity cursor id="cursor"
+                    geometry="primitive: ring; radiusOuter: 0.015;
+                              radiusInner: 0.01; segmentsTheta: 32"
+                    material="color: white; shader: flat"
+                    position="0 0 -0.75">
+          </a-entity>
+      </a-entity>
+  </a-entity>
+
+</a-scene>
+  </body>
+  <script>
+
+var skyBack = document.querySelector('#asky-back');
+var skyFront = document.querySelector('#asky-front');
+var arrow = document.querySelector('#arrow1');
+var cur = document.querySelector('#cursor');
+
+arrow.addEventListener('click', function (evt) {
+	var time=300;
+	var i = time;
+	var j = 0;
+	function fadeOut(picTarget)
+	{   
+		skyBack.setAttribute('src',picTarget);
+		skyFront.setAttribute('opacity',(1/time)*i);
+		skyBack.setAttribute('opacity',(1/time)*j);
+		j++;i--;
+		if(i>0) setTimeout(function(){fadeOut(picTarget)},1);
+		else setTimeout(skyFront.setAttribute('src',picTarget),time);
+	}
+	if(skyFront.getAttribute('src')=='#floor'){
+		setTimeout(fadeOut('#ru'),1000);
+	}else{
+		setTimeout(fadeOut('#floor'),1000);
+	}	
+});
+
+  </script>
+</html>

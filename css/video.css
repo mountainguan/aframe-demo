@@ -1,0 +1,51 @@
+#play-button {
+	background-color:black;
+	border:0px;
+	color:white;
+	font-size:40px;
+	position:fixed;
+	left:50%;
+	top:50%;
+	width:5em;
+	height:5em;
+	transform: translate(-50%, -50%);
+	z-index: 10;
+	opacity:0.8;
+	border-radius:20px;
+}
+#play-button:hover{
+	opacity:0.95;
+	box-shadow: 0px 0px 25px grey;
+}
+#pause-button {
+	background-color:black;
+	border:0px;
+	color:white;
+	font-size:12px;
+	position:fixed;
+	left:50%;
+	top:95%;
+	width:5em;
+	height:5em;
+	transform: translate(-50%, -100%);
+	z-index: 10;
+	opacity:0.3;
+	border-radius:50px;
+}
+#pause-button:hover{
+	opacity:0.95;
+	box-shadow: 0px 0px 25px grey;
+}
+.mask{
+	height:100%; 
+	width:100%; 
+	position:fixed; 
+	_position:absolute; 
+	top:0; 
+	z-index:9; 
+} 
+.opacity{ 
+	opacity:0.5; 
+	filter: alpha(opacity=50); 
+	background-color:#000; 
+} 

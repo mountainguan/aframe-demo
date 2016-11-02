@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>360 Degree Video</title>
+    <meta name="description" content="360 Degree Video">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <script src="./js/vr.js"></script>
+	<link href="css/video.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+
+	<button id="play-button">PLAY</button>
+	<button id="pause-button" style="display:none">PAUSE</button>
+	<div id="mask" class="mask opacity"></div>
+	<a-scene id="vr-scene">
+		<a-camera 
+			id="camera"
+			position="0 1.8 4"
+			visible="true"
+			scale="2" 
+			color="#000000" 
+			offset="2" 
+			maxdistance="100"
+			opacity="0.7">
+		</a-camera>
+	 
+	<a-assets>
+		<video id="vid"
+		webkit-playsinline
+		playsinline
+		crossOrigin="anonymous"
+		autoplay="false"
+		loop="true"
+		style="display: none">
+			<source type="video/mp4" src="video/test.mp4" -webkit-playsinline=true>
+		</video>
+	</a-assets>
+	 
+	  <a-entity geometry="primitive: sphere;
+						  radius: 5000;
+						  segmentsWidth: 64;
+						  segmentsHeight: 64;"
+				material="shader: flat; src: #vid;"
+				scale="-1 1 1">
+	  </a-entity>
+
+	</a-scene>
+
+  </body>
+  <script>
+	var vid = document.getElementById('vid');
+	var pause = document.getElementById('pause-button');
+	var play = document.getElementById('play-button');
+	var mask = document.getElementById('mask');
+  
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端或者uc浏览器
+	var isiOS= !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+
+	if(isAndroid||isiOS){
+		play.addEventListener("click", function(e){
+		  this.style.opacity = 0;
+		  vid.play();
+		  mask.setAttribute('style','display:none');
+		  pause.setAttribute('style','');
+		}, false);
+		pause.addEventListener("click", function(e){
+		  play.removeAttribute("style");
+		  vid.pause();
+		  mask.setAttribute('style','');
+		  pause.setAttribute('style','display:none');
+		}, false);
+	}else{
+		mask.setAttribute('style','display:none');
+		pause.setAttribute('style','display:none');
+		play.setAttribute('style','display:none');
+	}
+  </script>
+</html>

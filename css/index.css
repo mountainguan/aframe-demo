@@ -1,0 +1,164 @@
+@font-face {
+    font-family: web;
+    src: url(fonts/web-webfont.ttf);
+}
+hr{
+	width:15%;
+	box-shadow:0px 0px 25px black;
+}
+.viewport{
+	background-color:#383636;
+	margin:0px;
+	//overflow:hidden;
+}
+.topbar{
+	position:fixed;
+	height:7%;
+	width:100%;
+	z-index:2;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	background-color: black;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.77), inset 0 1px #000;
+	-moz-box-shadow: 0 1px 1px rgba(0,0,0,.77), inset 0 1px #000;
+	box-shadow: 0 1px 1px rgba(0,0,0,.77), inset 0 1px #000;
+	border: solid 1px #111317;
+	background-image: -webkit-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: -moz-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: -o-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: -ms-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: linear-gradient(to top, #1d1818, #3e3c3c);
+}
+.top_title{
+	text-align: center;
+	font-size:1.5em;
+	color:white;
+	text-shadow:1px 1px 5px white;
+}
+.back-btn{
+	cursor: default;
+	position:fixed;
+	height:7%;
+	width:10%;
+	z-index:2;
+	background-color: black;
+	border-right:1px solid white;
+	background-image: -webkit-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: -moz-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: -o-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: -ms-linear-gradient(bottom, #1d1818, #3e3c3c);
+	background-image: linear-gradient(to top, #1d1818, #3e3c3c);
+}
+.back-btn:hover{
+	background-image: -webkit-linear-gradient(bottom, #2A2B2D, #121212);
+	background-image: -moz-linear-gradient(bottom, #2A2B2D, #121212);
+	background-image: -o-linear-gradient(bottom, #2A2B2D, #121212);
+	background-image: -ms-linear-gradient(bottom, #2A2B2D, #121212);
+	background-image: linear-gradient(to top, #2A2B2D, #121212);
+}
+.back-font{
+	font-style:bold;
+	position:relative;
+	top:50%;
+	color:white;
+	width:100%;height:100%;  /*设置div的大小*/
+	text-align: center;        /*文字水平居中对齐*/
+	line-height: 100%;        /*设置文字行距等于div的高度*/
+	overflow:hidden;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+.warp{
+	position:relative;
+	height:3%;
+	margin:0px auto;
+}
+.vr-house{
+	position:relative;
+	margin:7% auto;
+	width:1024;
+	height:512;
+}
+.subtitle{
+	color:white;
+	text-shadow:0px 0px 15px black;
+}
+
+img{
+	box-shadow: 0px 0px 25px black;
+}
+img:hover{
+	box-shadow: 0px 0px 50px black;
+	transition: box-shadow 0.3s ease-out
+}
+
+.font_cor {
+	cursor: default;
+	font-size:2em;
+	position:absolute;
+	right:20px;
+	bottom:20px;
+    font-family: 'web';
+	color:white;
+}
+
+.font_cor:hover{
+	text-shadow: 0px 0px 25px black;
+}
+#msg{
+	margin:0 auto;
+	width:1024;
+	color:gray;
+	padding:20px;
+	text-align:center-left;
+	font-size:.7em;
+}
+#footer{
+	color:white;
+	padding:20px;
+	text-align:center;
+	font-size:.5em;
+}
+
+/*自适应*/
+@media screen and (max-width:1200px){
+	.subtitle{
+		font-size:2.5em
+	}
+	.back-font{
+		font-size:2em
+	}
+	.back-btn{
+		height:7%;
+		width:2em*6;
+	}
+	.top_title{
+		font-size:3em;
+	}
+	.font_cor {
+		font-size:9em;
+		left:50%;
+		top:50%;
+		transform: translate(-35%);
+		-webkit-user-select:none;
+		-moz-user-select:none;
+		-ms-user-select:none;
+		user-select:none;
+	}
+	.warp{
+		height:5%;
+	}
+    .vr-house{
+		margin:15% auto;
+		width:90%;
+	}
+	#msg{
+		width:90%;
+		margin:0 auto;
+		color:gray;
+		padding:20px;
+		font-size:1.2em;
+	}
+}

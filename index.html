@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<title>Fanoi实验室</title>
+		<meta charset="utf-8" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#212121" />
+		<meta name="theme-color" content="#212121">
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body class="viewport">
+		<div class="topbar">
+				<div id="goback" class="back-btn" ><div class="back-font" value="BACK">返回</div></div>
+				<h1 class="top_title">Fanoi实验室</h1>	
+		</div>
+		<div class="warp"></div>
+		
+
+		<div id="pic" class="vr-house">
+			<h2 class="subtitle">VR看房<hr align="left"/></h2>
+			<img style="width:100%;height:100%" src="view_pic/house.jpg"></img>
+		</div>
+		<div id="video" class="vr-house">
+			<h2 class="subtitle">VR穿梭机<hr align="left"/></h2>
+			<span id="pbn" class="font_cor">R</span>
+			<img style="width:100%;height:100%" src="view_pic/video.jpg"/>
+		</div>
+		<div id="msg">
+			<b>注意事项:</b><br/>
+			系统要求  : <u>Android 5.0以上，iOS 10以上</u>;<br/>
+			手机要求  : 陀螺仪;<br/>
+			网络要求  : 尽量使用wifi，4G也可以，但可能会不稳定;<br/>
+			浏览器要求: <u>Chrome，safari都支持</u>。需要开启WebGL才行。<br/><br/>
+			p.s:手机配置越高越好。
+		</div>
+		<div id="footer">Copyright © 2014-2018 Fanoi Technologies Co., Ltd. All rights reserved.<br/>
+						版权所有 © 广东法诺文化传媒有限公司 2014-2018<br/>
+						粤ICP备14082657号
+		</div>
+		<script>
+			var gotoSite = function(site){
+				window.location.href = site;
+			};
+			var back = function(){
+				history.back(-1);
+			};
+			document.getElementById("goback").setAttribute('onclick','back()');
+			document.getElementById("pic").setAttribute('onclick',"gotoSite('view.html')");
+			document.getElementById("video").setAttribute('onclick',"gotoSite('video.html')");
+			document.getElementById("pbn").setAttribute('onclick',"gotoSite('video.html')");
+		</script>
+	</body>
+</html>
